@@ -1,0 +1,30 @@
+{
+  "categories": [
+    { "id": "numero", "title": "Número", "subtitle": "Sinais de números" },
+    { "id": "operacoes", "title": "Operações", "subtitle": "Somar, subtrair, etc." },
+    { "id": "algebra", "title": "Álgebra", "subtitle": "X, Y, equações" },
+    { "id": "calculo", "title": "Cálculo", "subtitle": "Limites, derivadas" }
+  ],
+  "signals": [
+    { "id": "s1", "term": "Número", "category": "numero", "topic": "matematica", "video": "" },
+    { "id": "s2", "term": "Zero", "category": "numero", "topic": "matematica", "video": "" },
+    { "id": "s3", "term": "Um", "category": "numero", "topic": "matematica", "video": "" },
+    { "id": "s4", "term": "Dois", "category": "numero", "topic": "matematica", "video": "" },
+
+    { "id": "s5", "term": "Somar", "category": "operacoes", "topic": "matematica", "video": "" },
+    { "id": "s6", "term": "Subtrair", "category": "operacoes", "topic": "matematica", "video": "" },
+    { "id": "s7", "term": "Multiplicar", "category": "operacoes", "topic": "matematica", "video": "" },
+    { "id": "s8", "term": "Dividir", "category": "operacoes", "topic": "matematica", "video": "" },
+
+    { "id": "s9", "term": "Equação", "category": "algebra", "topic": "matematica", "video": "" },
+    { "id": "s10", "term": "Variável", "category": "algebra", "topic": "matematica", "video": "" },
+
+    { "id": "s11", "term": "Derivada", "category": "calculo", "topic": "matematica", "video": "" },
+    { "id": "s12", "term": "Integral", "category": "calculo", "topic": "matematica", "video": "" }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Aula 1 - Alfabeto em Libras", "videoUrl": "" },
+    { "id": "l2", "title": "Aula 2 - Saudações", "videoUrl": "" },
+    { "id": "l3", "title": "Aula 3 - Números", "videoUrl": "" }
+  ]
+}
