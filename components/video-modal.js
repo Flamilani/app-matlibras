@@ -5,7 +5,7 @@ class VideoModal extends HTMLElement {
       <div id="videoModalOverlay" class="video-modal-overlay">
         <div class="video-modal">
           <button id="closeVideoBtn" class="video-modal__close">✕</button>
-          <video id="videoPlayer" class="video-modal__player" controls playsinline>
+          <video id="videoPlayer" class="video-modal__player" controls controlslist="nofullscreen" playsinline>
             Seu navegador não suporta a tag de vídeo.
           </video>
           <div class="video-modal__info">

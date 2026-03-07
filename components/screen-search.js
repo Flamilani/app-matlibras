@@ -9,6 +9,21 @@ class ScreenSearch extends HTMLElement {
                 <source src="videos/um.webm" type="video/webm">
                 Seu navegador não suporta a tag de vídeo.
             </video>
+            <!-- Video Top Controls Overlay -->
+            <div id="videoTitleOverlay" style="display: none; position: absolute; top: 20px; left: 20px; right: 20px; z-index: 10; justify-content: space-between; align-items: flex-start; pointer-events: none;">
+                <div style="text-align: left; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                    <h2 id="videoTitleText" style="margin: 0; font-size: 30px; font-weight: 900;"></h2>
+                    <p id="videoCategoryText" style="margin: 4px 0 0; font-size: 16px; opacity: 0.9;"></p>
+                </div>
+                <button id="btnPlayPause" style="pointer-events: auto; display: none; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 44px; height: 44px; align-items: center; justify-content: center; color: white; cursor: pointer; backdrop-filter: blur(4px);" title="Pausar/Tocar" type="button">
+                  <svg id="iconPause" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                    <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+                  </svg>
+                  <svg id="iconPlay" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                  </svg>
+                </button>
+            </div>
             
             <div class="floating-search">
                 <span class="icon" aria-hidden="true">
@@ -17,6 +32,7 @@ class ScreenSearch extends HTMLElement {
                   </svg>
                 </span>
                 <input id="searchInputHome" type="text" placeholder="Busque palavras" autocomplete="off" />
+
                 <button id="btnMic" class="mic-btn" title="Microfone" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
                     <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
@@ -39,6 +55,9 @@ class ScreenSearch extends HTMLElement {
 
     this.searchInput = this.querySelector("#searchInputHome");
     this.btnMic = this.querySelector("#btnMic");
+    this.btnPlayPause = this.querySelector("#btnPlayPause");
+    this.iconPlay = this.querySelector("#iconPlay");
+    this.iconPause = this.querySelector("#iconPause");
     this.resultsOverlay = this.querySelector("#resultsOverlay");
 
     this.setupListeners();
@@ -50,6 +69,13 @@ class ScreenSearch extends HTMLElement {
     if (this.searchInput) {
       this.searchInput.addEventListener("input", (e) => {
         const query = (e.target.value || "").trim();
+
+        // Esconde o título e o controle de música do topo ao iniciar uma busca
+        const titleOverlay = this.querySelector("#videoTitleOverlay");
+        if (titleOverlay) {
+          titleOverlay.style.display = "none";
+        }
+
         if (query.length > 0) {
           this.resultsOverlay.style.display = "block";
           const items = this.searchSignals(query);
@@ -63,6 +89,23 @@ class ScreenSearch extends HTMLElement {
     if (this.btnMic) {
       this.btnMic.addEventListener("click", () => {
         alert("Microfone (placeholder). Aqui você pode integrar voz depois.");
+      });
+    }
+
+    if (this.btnPlayPause) {
+      this.btnPlayPause.addEventListener("click", () => {
+        const bgVideo = this.querySelector(".bg-video");
+        if (!bgVideo) return;
+
+        if (bgVideo.paused) {
+          bgVideo.play();
+          if (this.iconPlay) this.iconPlay.style.display = "none";
+          if (this.iconPause) this.iconPause.style.display = "block";
+        } else {
+          bgVideo.pause();
+          if (this.iconPlay) this.iconPlay.style.display = "block";
+          if (this.iconPause) this.iconPause.style.display = "none";
+        }
       });
     }
   }
@@ -97,6 +140,7 @@ class ScreenSearch extends HTMLElement {
       const catName = categoryName(item.category);
       const el = document.createElement("div");
       el.className = "result-item";
+      el.style.cursor = "pointer";
       el.innerHTML = `
         <span class="badge">${catName}</span>
         <div>
@@ -104,6 +148,45 @@ class ScreenSearch extends HTMLElement {
           <p class="result-item__meta">Tópico: ${escapeHtml(item.topic)}</p>
         </div>
       `;
+      el.addEventListener("click", () => {
+        if (item.video) {
+          const bgVideo = this.querySelector(".bg-video");
+          if (bgVideo) {
+            bgVideo.src = item.video;
+            bgVideo
+              .play()
+              .then(() => {
+                // Atualiza o botão para "pause" ao começar tocar
+                if (this.iconPlay && this.iconPause) {
+                  this.iconPlay.style.display = "none";
+                  this.iconPause.style.display = "block";
+                }
+              })
+              .catch((e) => console.log("Failed to play background video:", e));
+
+            // Mostra o título flutuante
+            const titleOverlay = this.querySelector("#videoTitleOverlay");
+            const titleText = this.querySelector("#videoTitleText");
+            const categoryText = this.querySelector("#videoCategoryText");
+            if (titleOverlay && titleText) {
+              titleText.textContent = item.term;
+              categoryText.textContent = categoryName(item.category);
+              titleOverlay.style.display = "flex";
+            }
+
+            // Exibe o controle de play/pause
+            if (this.btnPlayPause) {
+              this.btnPlayPause.style.display = "flex";
+            }
+
+            // Oculta os resultados e limpa o input para exibir o vídeo no fundo com destaque
+            this.resultsOverlay.style.display = "none";
+            this.searchInput.value = "";
+          }
+        } else {
+          alert(`Vídeo em breve para: ${item.term}`);
+        }
+      });
       list.appendChild(el);
     });
   }

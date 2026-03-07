@@ -61,10 +61,15 @@
 
 .video-modal__player {
   width: 100%;
-  aspect-ratio: 16 / 28;
+  aspect-ratio: 18 / 22;
   display: block;
   background: #000;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+/* Ocultar botão de tela cheia no Chrome / Safari */
+.video-modal__player::-webkit-media-controls-fullscreen-button {
+  display: none !important;
 }
 
 .video-modal__info {
