@@ -1,6 +1,7 @@
 class ScreenAccount extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+      <link rel="stylesheet" href="./styles/screen-account.css" />
       <section id="screen-account" class="screen" aria-label="Conta">
           <div class="card">
               <h2 class="card__title">CONTA</h2>
@@ -31,8 +32,8 @@ class ScreenAccount extends HTMLElement {
   setupAuth() {
     const loginForm = this.querySelector("#loginForm");
     const logoutBtn = this.querySelector("#logoutBtn");
-    
-    if(loginForm) {
+
+    if (loginForm) {
       loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const email = this.querySelector("#email").value.trim();
@@ -45,7 +46,7 @@ class ScreenAccount extends HTMLElement {
       });
     }
 
-    if(logoutBtn) {
+    if (logoutBtn) {
       logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("auth_email");
         this.loadAuth();
@@ -59,7 +60,7 @@ class ScreenAccount extends HTMLElement {
     const accountBox = this.querySelector("#accountBox");
     const userEmail = this.querySelector("#userEmail");
 
-    if(!loginForm || !accountBox || !userEmail) return;
+    if (!loginForm || !accountBox || !userEmail) return;
 
     if (email) {
       loginForm.classList.add("is-hidden");

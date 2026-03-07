@@ -1,6 +1,7 @@
 class ScreenSearch extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+      <link rel="stylesheet" href="./styles/screen-search.css" />
       <section id="screen-search" class="screen is-active" aria-label="Pesquisa">
         <div class="video-card">
             <div class="video-placeholder">
@@ -55,20 +56,22 @@ class ScreenSearch extends HTMLElement {
   }
 
   setupListeners() {
-    if(this.searchInput) {
+    if (this.searchInput) {
       this.searchInput.addEventListener("input", (e) => {
         const items = this.searchSignals(e.target.value);
         this.renderHomeResults(items);
       });
     }
 
-    if(this.btnCamera) {
+    if (this.btnCamera) {
       this.btnCamera.addEventListener("click", () => {
-        alert("Câmera (placeholder). Aqui você pode integrar leitura por câmera depois.");
+        alert(
+          "Câmera (placeholder). Aqui você pode integrar leitura por câmera depois.",
+        );
       });
     }
-    
-    if(this.btnMic) {
+
+    if (this.btnMic) {
       this.btnMic.addEventListener("click", () => {
         alert("Microfone (placeholder). Aqui você pode integrar voz depois.");
       });
@@ -78,15 +81,15 @@ class ScreenSearch extends HTMLElement {
   searchSignals(query) {
     const q = (query || "").trim().toLowerCase();
     if (!q || !state.data) return [];
-    return state.data.signals.filter(s => s.term.toLowerCase().includes(q));
+    return state.data.signals.filter((s) => s.term.toLowerCase().includes(q));
   }
 
   renderHomeResults(items) {
     const list = this.querySelector("#resultsList");
     const count = this.querySelector("#resultsCount");
-    
-    if(!list || !count) return;
-    
+
+    if (!list || !count) return;
+
     list.innerHTML = "";
     count.textContent = String(items.length);
 
@@ -101,7 +104,7 @@ class ScreenSearch extends HTMLElement {
       return;
     }
 
-    items.slice(0, 20).forEach(item => {
+    items.slice(0, 20).forEach((item) => {
       const catName = categoryName(item.category);
       const el = document.createElement("div");
       el.className = "result-item";

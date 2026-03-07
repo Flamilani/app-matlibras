@@ -1,0 +1,28 @@
+.screen-title{
+  margin: 6px 0 12px;
+  font-size: 20px;
+  font-weight: 1000;
+}
+
+.lesson-list{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+.lesson{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+.lesson__title{
+  margin: 0 0 8px;
+  font-weight: 1000;
+}
+.lesson__video{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #0b1220;
+}
