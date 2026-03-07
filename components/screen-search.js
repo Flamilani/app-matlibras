@@ -3,71 +3,60 @@ class ScreenSearch extends HTMLElement {
     this.innerHTML = `
       <link rel="stylesheet" href="./styles/screen-search.css" />
       <section id="screen-search" class="screen is-active" aria-label="Pesquisa">
-        <div class="video-card">
-            <div class="video-placeholder">
-                <div class="video-placeholder__label">Buscar sinais<br/><video width="640" height="360" controls poster="capa.jpg">
-                    <source src="Videos/um.mp4" type="video/mp4">                                                                                
-                    <source src="Videos/um.webm" type="video/webm">                                                                                
-                    Seu navegador não suporta a tag de vídeo.
-                </video></div>
-            </div>
-        </div>
-
-        <div class="search-row">
-            <div class="search-input">
+        <div class="search-fullscreen">
+            <video class="bg-video" autoplay loop muted playsinline poster="capa.jpg">
+                <source src="Videos/um.mp4" type="video/mp4">
+                <source src="Videos/um.webm" type="video/webm">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            
+            <div class="floating-search">
                 <span class="icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                   </svg>
                 </span>
-                <input id="searchInputHome" type="text" placeholder="Buscar sinais" autocomplete="off" />
-                <button id="btnCamera" class="icon-btn" title="Câmera (placeholder)" type="button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
-                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                    <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"/>
+                <input id="searchInputHome" type="text" placeholder="Busque palavras" autocomplete="off" />
+                <button id="btnMic" class="mic-btn" title="Microfone" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                    <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
                   </svg>
                 </button>
             </div>
-            <button id="btnMic" class="mic-btn" title="Microfone (placeholder)" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
-                <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z"/>
-                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
-              </svg>
-            </button>
-        </div>
 
-        <div class="results">
-            <div class="results__head">
-                <span class="results__title">Linguagem Matemática</span>
-                <span id="resultsCount" class="results__count">0</span>
+            <!-- Overlay for search results -->
+            <div class="results-overlay" id="resultsOverlay" style="display:none;">
+               <div class="results__head" style="margin-bottom: 14px; display:flex; justify-content:space-between; align-items:center;">
+                   <span class="results__title" style="font-weight: 800; font-size: 18px;">Resultados</span>
+                   <span id="resultsCount" class="results__count" style="font-size: 12px; background: #e2e8f0; padding: 4px 10px; border-radius: 999px;">0</span>
+               </div>
+               <div id="resultsList" class="results__list" style="display:flex; flex-direction:column; gap:10px;"></div>
             </div>
-            <div id="resultsList" class="results__list"></div>
         </div>
       </section>
     `;
 
     this.searchInput = this.querySelector("#searchInputHome");
-    this.btnCamera = this.querySelector("#btnCamera");
     this.btnMic = this.querySelector("#btnMic");
+    this.resultsOverlay = this.querySelector("#resultsOverlay");
 
     this.setupListeners();
-    // initially render without results, if state data loaded, it will re-render
+    // initially hide results
     this.renderHomeResults([]);
   }
 
   setupListeners() {
     if (this.searchInput) {
       this.searchInput.addEventListener("input", (e) => {
-        const items = this.searchSignals(e.target.value);
-        this.renderHomeResults(items);
-      });
-    }
-
-    if (this.btnCamera) {
-      this.btnCamera.addEventListener("click", () => {
-        alert(
-          "Câmera (placeholder). Aqui você pode integrar leitura por câmera depois.",
-        );
+        const query = (e.target.value || "").trim();
+        if (query.length > 0) {
+          this.resultsOverlay.style.display = "block";
+          const items = this.searchSignals(query);
+          this.renderHomeResults(items);
+        } else {
+          this.resultsOverlay.style.display = "none";
+        }
       });
     }
 
