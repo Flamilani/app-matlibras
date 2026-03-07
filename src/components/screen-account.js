@@ -4,6 +4,9 @@ class ScreenAccount extends HTMLElement {
       <link rel="stylesheet" href="./assets/styles/screen-account.css" />
       <section id="screen-account" class="screen" aria-label="Conta">
           <div class="account-container">
+              <div class="logo-container">
+                  <img src="./assets/imgs/logo-matlibras.jpeg" alt="Logo MatiLibras" class="logo-img" />
+              </div>
               <form id="loginForm" class="form" autocomplete="off">
                   <div class="input-group">
                       <label class="label" for="email">E-mail</label>
