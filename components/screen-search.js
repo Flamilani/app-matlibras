@@ -88,7 +88,109 @@ class ScreenSearch extends HTMLElement {
 
     if (this.btnMic) {
       this.btnMic.addEventListener("click", () => {
-        alert("Microfone (placeholder). Aqui você pode integrar voz depois.");
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+          alert("Reconhecimento de voz não suportado pelo seu navegador.");
+          return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = "pt-BR";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        let micAlert = this.querySelector("#micAlert");
+        if (!micAlert) {
+          micAlert = document.createElement("div");
+          micAlert.id = "micAlert";
+          micAlert.style.position = "absolute";
+          micAlert.style.top =
+            "-45px"; /* Fica imediatamente acima da barra flutuante */
+          micAlert.style.left = "50%";
+          micAlert.style.transform = "translateX(-50%)";
+          micAlert.style.background = "#e53e3e";
+          micAlert.style.color = "white";
+          micAlert.style.padding = "6px 14px";
+          micAlert.style.borderRadius = "20px";
+          micAlert.style.fontWeight = "bold";
+          micAlert.style.fontSize = "14px";
+          micAlert.style.zIndex = "100";
+          micAlert.style.pointerEvents = "none";
+          micAlert.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+          micAlert.style.display = "none";
+
+          const floatingSearch = this.querySelector(".floating-search");
+          if (floatingSearch) {
+            /* Ensure relative positioning so absolute works correctly */
+            floatingSearch.style.position = "absolute";
+            floatingSearch.appendChild(micAlert);
+          }
+        }
+
+        const resetListeningState = () => {
+          this.btnMic.style.color = "";
+          micAlert.style.display = "none";
+          if (
+            this.searchInput &&
+            this.searchInput.dataset.originalPlaceholder
+          ) {
+            this.searchInput.placeholder =
+              this.searchInput.dataset.originalPlaceholder;
+          }
+        };
+
+        recognition.onstart = () => {
+          this.btnMic.style.color = "red";
+          micAlert.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="mic-anim" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+              </svg>
+              <span>Escutando...</span>
+            </div>
+          `;
+          micAlert.style.display = "block";
+
+          if (this.searchInput) {
+            if (!this.searchInput.dataset.originalPlaceholder) {
+              this.searchInput.dataset.originalPlaceholder =
+                this.searchInput.placeholder;
+            }
+            this.searchInput.placeholder = "Fale agora...";
+            this.searchInput.value = "";
+          }
+        };
+
+        recognition.onresult = (event) => {
+          const speechResult = event.results[0][0].transcript;
+          if (this.searchInput) {
+            this.searchInput.value = speechResult;
+            const inputEvent = new Event("input", { bubbles: true });
+            this.searchInput.dispatchEvent(inputEvent);
+          }
+        };
+
+        recognition.onspeechend = () => {
+          recognition.stop();
+        };
+
+        recognition.onend = () => {
+          resetListeningState();
+        };
+
+        recognition.onerror = (event) => {
+          resetListeningState();
+          micAlert.textContent = "Erro: " + event.error;
+          micAlert.style.display = "block";
+          setTimeout(() => {
+            micAlert.style.display = "none";
+          }, 3000);
+          console.error("Erro no reconhecimento de voz:", event.error);
+        };
+
+        recognition.start();
       });
     }
 
