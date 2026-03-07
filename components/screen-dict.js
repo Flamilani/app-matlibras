@@ -16,10 +16,16 @@ class ScreenDict extends HTMLElement {
 
         <div id="categoryGrid" class="grid"></div>
 
-        <div class="divider"></div>
-
-        <h3 class="section-title">Sinais</h3>
-        <div id="dictSignalsList" class="list"></div>
+        <div id="bottomSheetOverlay" class="bottom-sheet-overlay"></div>
+        <div id="bottomSheet" class="bottom-sheet">
+            <div class="bottom-sheet__header">
+                <h3 class="section-title">Sinais</h3>
+                <button type="button" id="closeBottomSheet" class="bottom-sheet__close">✕</button>
+            </div>
+            <div class="bottom-sheet__content">
+                <div id="dictSignalsList" class="list"></div>
+            </div>
+        </div>
       </section>
     `;
 
@@ -31,8 +37,36 @@ class ScreenDict extends HTMLElement {
     if (this.searchInput) {
       this.searchInput.addEventListener("input", (e) => {
         this.renderDictSignals(e.target.value);
+        if (e.target.value.trim().length > 0) {
+          this.openBottomSheet();
+        } else if (!state.selectedCategory) {
+          this.closeBottomSheet();
+        }
       });
     }
+
+    const closeBtn = this.querySelector("#closeBottomSheet");
+    const overlay = this.querySelector("#bottomSheetOverlay");
+
+    if (closeBtn)
+      closeBtn.addEventListener("click", () => this.closeBottomSheet());
+    if (overlay)
+      overlay.addEventListener("click", () => this.closeBottomSheet());
+  }
+
+  openBottomSheet() {
+    const sheet = this.querySelector("#bottomSheet");
+    const overlay = this.querySelector("#bottomSheetOverlay");
+    if (sheet) sheet.classList.add("active");
+    if (overlay) overlay.classList.add("active");
+  }
+
+  closeBottomSheet() {
+    const sheet = this.querySelector("#bottomSheet");
+    const overlay = this.querySelector("#bottomSheetOverlay");
+    if (sheet) sheet.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
+    state.selectedCategory = null;
   }
 
   updateData() {
@@ -67,6 +101,7 @@ class ScreenDict extends HTMLElement {
       card.addEventListener("click", () => {
         state.selectedCategory = cat.id;
         this.renderDictSignals(this.searchInput.value);
+        this.openBottomSheet();
       });
       grid.appendChild(card);
     });
@@ -110,10 +145,16 @@ class ScreenDict extends HTMLElement {
         </div>
         <button class="play" type="button">▶︎</button>
       `;
-      row.querySelector(".play").addEventListener("click", () => {
-        alert(
-          `Tocar vídeo do sinal: ${s.term}\\n\\n(placeholder — aqui você conecta um vídeo real)`,
-        );
+      // Torna a linha inteira clicável
+      row.style.cursor = "pointer";
+      row.addEventListener("click", () => {
+        if (s.video) {
+          if (window.openVideoModal) {
+            window.openVideoModal(s.video, s.term);
+          }
+        } else {
+          alert(`Vídeo em breve para: ${s.term}`);
+        }
       });
       list.appendChild(row);
     });

@@ -4,8 +4,6 @@ class ScreenAccount extends HTMLElement {
       <link rel="stylesheet" href="./styles/screen-account.css" />
       <section id="screen-account" class="screen" aria-label="Conta">
           <div class="card">
-              <h2 class="card__title">CONTA</h2>
-
               <form id="loginForm" class="form">
                   <label class="label" for="email">E-mail</label>
                   <input id="email" class="input" type="email" placeholder="exemplo@gmail.com" required />

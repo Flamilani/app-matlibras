@@ -3,7 +3,7 @@ class ScreenLibras extends HTMLElement {
     this.innerHTML = `
       <link rel="stylesheet" href="./styles/screen-libras.css" />
       <section id="screen-libras" class="screen" aria-label="LIBRAS">
-          <h2 class="screen-title">Aula básico em Libras</h2>
+          <h2 class="screen-title">Aulas básicas de Matemática</h2>
           <div id="lessonsList" class="lesson-list"></div>
       </section>
     `;

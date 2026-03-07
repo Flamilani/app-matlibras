@@ -8,25 +8,25 @@
     { "id": "estatistica", "title": "Estatística", "subtitle": "Média, mediana, desvios, etc." }
   ],
   "signals": [
-    { "id": "s1", "term": "Número", "category": "numero", "topic": "matematica", "video": "" },
-    { "id": "s2", "term": "Zero", "category": "numero", "topic": "matematica", "video": "" },
-    { "id": "s3", "term": "Um", "category": "numero", "topic": "matematica", "video": "" },
-    { "id": "s4", "term": "Dois", "category": "numero", "topic": "matematica", "video": "" },
+    { "id": "s1", "term": "Número", "category": "numero", "topic": "matematica", "video": "videos/crescimento.mp4" },
+    { "id": "s2", "term": "Zero", "category": "numero", "topic": "matematica", "video": "videos/decrescimento.mp4" },
+    { "id": "s3", "term": "Um", "category": "numero", "topic": "matematica", "video": "videos/um.mp4" },
+    { "id": "s4", "term": "Dois", "category": "numero", "topic": "matematica", "video": "videos/denominador.mp4" },
 
     { "id": "s5", "term": "Somar", "category": "operacoes", "topic": "matematica", "video": "" },
     { "id": "s6", "term": "Subtrair", "category": "operacoes", "topic": "matematica", "video": "" },
     { "id": "s7", "term": "Multiplicar", "category": "operacoes", "topic": "matematica", "video": "" },
-    { "id": "s8", "term": "Dividir", "category": "operacoes", "topic": "matematica", "video": "" },
+    { "id": "s8", "term": "Dividir", "category": "operacoes", "topic": "matematica", "video": "videos/divisao.mp4" },
 
     { "id": "s9", "term": "Equação", "category": "algebra", "topic": "matematica", "video": "" },
     { "id": "s10", "term": "Variável", "category": "algebra", "topic": "matematica", "video": "" },
 
-    { "id": "s11", "term": "Derivada", "category": "calculo", "topic": "matematica", "video": "" },
+    { "id": "s11", "term": "Derivada", "category": "calculo", "topic": "matematica", "video": "videos/derivada.mp4" },
     { "id": "s12", "term": "Integral", "category": "calculo", "topic": "matematica", "video": "" }
   ],
   "lessons": [
-    { "id": "l1", "title": "Aula 1 - Alfabeto em Libras", "videoUrl": "" },
-    { "id": "l2", "title": "Aula 2 - Saudações", "videoUrl": "" },
-    { "id": "l3", "title": "Aula 3 - Números", "videoUrl": "" }
+    { "id": "l1", "title": "Aula 1 - Operações", "videoUrl": "videos/adicao.mp4" },
+    { "id": "l2", "title": "Aula 2 - Fração", "videoUrl": "videos/calculo.mp4" },
+    { "id": "l3", "title": "Aula 3 - Potenciação", "videoUrl": "videos/coeficiente.mp4" }
   ]
 }
