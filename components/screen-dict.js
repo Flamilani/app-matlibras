@@ -46,10 +46,19 @@ class ScreenDict extends HTMLElement {
     grid.innerHTML = "";
 
     state.data.categories.forEach((cat) => {
+      const iconsMap = {
+        numero: "🔢",
+        operacoes: "➗",
+        algebra: "🧮",
+        calculo: "📈",
+      };
+      const catIcon = iconsMap[cat.id] || "📘";
+
       const card = document.createElement("button");
       card.type = "button";
       card.className = "grid-card";
       card.innerHTML = `
+        <div class="grid-card__icon">${catIcon}</div>
         <p class="grid-card__title">${escapeHtml(cat.title)}</p>
         <p class="grid-card__subtitle">${escapeHtml(cat.subtitle)}</p>
       `;
