@@ -8,6 +8,7 @@
   background: var(--card);
   box-shadow: var(--shadow);
 }
+
 .top-search input {
   flex: 1;
   border: none;
@@ -22,12 +23,14 @@
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 15px;
+  padding-left: 20px;
 }
+
 .hero__title {
   margin: 0;
-  font-size: 22px;
-  font-weight: 1000;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .grid {
@@ -36,6 +39,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
 .grid-card {
   background: var(--card);
   border: 1px solid var(--line);
@@ -45,6 +49,7 @@
   cursor: pointer;
   text-align: center;
 }
+
 .grid-card__icon {
   width: 44px;
   height: 44px;

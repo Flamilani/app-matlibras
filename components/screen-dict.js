@@ -51,6 +51,8 @@ class ScreenDict extends HTMLElement {
         operacoes: "➗",
         algebra: "🧮",
         calculo: "📈",
+        logica: "🧠",
+        estatistica: "📊",
       };
       const catIcon = iconsMap[cat.id] || "📘";
 

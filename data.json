@@ -3,7 +3,9 @@
     { "id": "numero", "title": "Número", "subtitle": "Sinais de números" },
     { "id": "operacoes", "title": "Operações", "subtitle": "Somar, subtrair, etc." },
     { "id": "algebra", "title": "Álgebra", "subtitle": "X, Y, equações" },
-    { "id": "calculo", "title": "Cálculo", "subtitle": "Limites, derivadas" }
+    { "id": "calculo", "title": "Cálculo", "subtitle": "Limites, derivadas" },
+    { "id": "logica", "title": "Lógica", "subtitle": "Proposições, argumentos, etc." },
+    { "id": "estatistica", "title": "Estatística", "subtitle": "Média, mediana, desvios, etc." }
   ],
   "signals": [
     { "id": "s1", "term": "Número", "category": "numero", "topic": "matematica", "video": "" },
