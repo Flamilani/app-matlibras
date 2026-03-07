@@ -1,7 +1,7 @@
 class ScreenAccount extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <link rel="stylesheet" href="./styles/screen-account.css" />
+      <link rel="stylesheet" href="./assets/styles/screen-account.css" />
       <section id="screen-account" class="screen" aria-label="Conta">
           <div class="account-container">
               <form id="loginForm" class="form" autocomplete="off">

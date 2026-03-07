@@ -1,7 +1,7 @@
 class ScreenLibras extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <link rel="stylesheet" href="./styles/screen-libras.css" />
+      <link rel="stylesheet" href="./assets/styles/screen-libras.css" />
       <section id="screen-libras" class="screen" aria-label="LIBRAS">
           <h2 class="screen-title">Aulas básicas de Matemática</h2>
           <div id="lessonsList" class="lesson-list"></div>
