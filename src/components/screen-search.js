@@ -10,6 +10,16 @@ class ScreenSearch extends HTMLElement {
                 <source src="assets/videos/um.webm" type="video/webm">
                 Seu navegador não suporta a tag de vídeo.
             </video>
+
+            <!-- Loading Overlay -->
+            <div id="loadingOverlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #000; z-index: 999999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+              <div class="spinner" style="border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #fff; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+              <p style="color: white; margin-top: 15px; font-weight: bold; font-family: sans-serif;">Carregando...</p>
+              <style>
+                @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+              </style>
+            </div>
+
             <!-- Video Top Controls Overlay -->
             <div id="videoTitleOverlay" style="display: none; position: absolute; top: 20px; left: 20px; right: 20px; z-index: 10; justify-content: space-between; align-items: flex-start; pointer-events: none;">
                 <div style="text-align: left; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
@@ -64,6 +74,33 @@ class ScreenSearch extends HTMLElement {
     this.setupListeners();
     // initially hide results
     this.renderHomeResults([]);
+
+    // Loading Logic
+    const bgVideo = this.querySelector(".bg-video");
+    const loadingOverlay = this.querySelector("#loadingOverlay");
+
+    if (bgVideo && loadingOverlay) {
+      const hideLoader = () => {
+        setTimeout(() => {
+          if (loadingOverlay.style.display !== "none") {
+            loadingOverlay.style.transition = "opacity 0.4s ease";
+            loadingOverlay.style.opacity = "0";
+            setTimeout(() => {
+              loadingOverlay.style.display = "none";
+            }, 400);
+          }
+        }, 500); // Garante que o usuário não veja o "piscar" da view rendendo.
+      };
+
+      if (bgVideo.readyState >= 3) {
+        hideLoader();
+      } else {
+        bgVideo.addEventListener("canplay", hideLoader);
+        bgVideo.addEventListener("error", hideLoader);
+        // Fallback to remove loader after 4 seconds to ensure experience isn't blocked
+        setTimeout(hideLoader, 4000);
+      }
+    }
   }
 
   setupListeners() {

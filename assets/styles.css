@@ -50,14 +50,17 @@ body {
 }
 
 #user-button {
-  border: 2px solid var(--primary);
-  border-radius: 50%;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: max-content;
   height: max-content;
+}
+
+#user-button .cl-userButtonBox {
+  border: 2px solid var(--primary);
+  border-radius: 50%;
 }
 
 .main {
