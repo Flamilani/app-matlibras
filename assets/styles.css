@@ -38,12 +38,26 @@ body {
 
 .header {
   padding: 16px 16px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .header__title {
   margin: 0;
   font-size: 18px;
   font-weight: 800;
   letter-spacing: 0.2px;
+}
+
+#user-button {
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
 }
 
 .main {

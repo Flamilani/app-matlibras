@@ -16,8 +16,20 @@ async function init() {
     const screenLibras = document.querySelector("screen-libras");
     if (screenLibras && screenLibras.updateData) screenLibras.updateData();
 
-    // Define tela inicial
-    showScreen("search");
+    // Define tela inicial dependendo da autenticação
+    const initializeRoute = () => {
+      if (window.Clerk && window.Clerk.user) {
+        showScreen("search"); // Usuário logado vai para pesquisa local
+      } else {
+        showScreen("account"); // Deslogado vai para conta
+      }
+    };
+
+    if (window.isClerkLoaded) {
+      initializeRoute();
+    } else {
+      window.addEventListener("clerk-loaded", initializeRoute, { once: true });
+    }
   } catch (err) {
     console.error(err);
     alert("Erro ao iniciar o app. Veja o console.");

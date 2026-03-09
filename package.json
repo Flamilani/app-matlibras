@@ -1,0 +1,30 @@
+{
+  "name": "aplicativo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flamilani/app-matlibras.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flamilani/app-matlibras/issues"
+  },
+  "homepage": "https://github.com/Flamilani/app-matlibras#readme",
+  "dependencies": {
+    "@clerk/clerk-js": "^6.0.0",
+    "@clerk/localizations": "^4.0.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
