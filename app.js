@@ -1,10 +1,9 @@
+import dataJson from "./src/data/data.json";
+
 // ====== Init ======
 async function init() {
   try {
-    const res = await fetch("./src/data/data.json");
-    if (!res.ok) throw new Error("Erro ao buscar src/data/data.json");
-
-    state.data = await res.json();
+    state.data = dataJson;
 
     // Atualiza os componentes que dependem de dados do state.data
     const screenSearch = document.querySelector("screen-search");
