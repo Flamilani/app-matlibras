@@ -1,7 +1,8 @@
+import "../../assets/styles/video-modal.css";
+
 class VideoModal extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <link rel="stylesheet" href="./assets/styles/video-modal.css" />
       <div id="videoModalOverlay" class="video-modal-overlay">
         <div class="video-modal">
           <button id="closeVideoBtn" class="video-modal__close">✕</button>

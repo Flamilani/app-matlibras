@@ -1,7 +1,8 @@
+import "../../assets/styles/screen-search.css";
+
 class ScreenSearch extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <link rel="stylesheet" href="./assets/styles/screen-search.css" />
       <section id="screen-search" class="screen is-active" aria-label="Pesquisa">
         <div class="search-fullscreen">
             <video class="bg-video" autoplay loop muted playsinline poster="capa.jpg">

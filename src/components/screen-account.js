@@ -1,7 +1,8 @@
+import "../../assets/styles/screen-account.css";
+
 class ScreenAccount extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <link rel="stylesheet" href="./assets/styles/screen-account.css" />
       <section id="screen-account" class="screen" aria-label="Conta">
           <div class="account-container">
               <div class="logo-container">

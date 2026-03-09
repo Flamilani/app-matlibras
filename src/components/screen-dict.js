@@ -1,7 +1,8 @@
+import "../../assets/styles/screen-dict.css";
+
 class ScreenDict extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <link rel="stylesheet" href="./assets/styles/screen-dict.css" />
       <section id="screen-dict" class="screen" aria-label="Dicionário">
         <div class="top-search">
             <span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
