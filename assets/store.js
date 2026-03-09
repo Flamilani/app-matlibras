@@ -114,3 +114,13 @@ function showScreen(route) {
     b.classList.add("is-active"),
   );
 }
+
+// ====== Export to window for module compatibility ======
+window.state = state;
+window.$ = $;
+window.$all = $all;
+window.escapeHtml = escapeHtml;
+window.categoryName = categoryName;
+window.appAlert = appAlert;
+window.setHeader = setHeader;
+window.showScreen = showScreen;

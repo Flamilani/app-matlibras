@@ -37,4 +37,8 @@ async function init() {
 }
 
 // Inicializa assim que o DOM principal (e os Web Components simples) estiver pronto
-document.addEventListener("DOMContentLoaded", init);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
