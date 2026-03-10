@@ -6,8 +6,8 @@ class ScreenSearch extends HTMLElement {
       <section id="screen-search" class="screen is-active" aria-label="Pesquisa">
         <div class="search-fullscreen">
             <video class="bg-video" autoplay loop muted playsinline poster="capa.jpg">
-                <source src="assets/videos/um.mp4" type="video/mp4">
-                <source src="assets/videos/um.webm" type="video/webm">
+                <source src="assets/videos/calculo.mp4" type="video/mp4">
+                <source src="assets/videos/calculo.webm" type="video/webm">
                 Seu navegador não suporta a tag de vídeo.
             </video>
 
@@ -35,7 +35,7 @@ class ScreenSearch extends HTMLElement {
                   </svg>
                 </button>
             </div>
-            
+            <div class="floating-grid">
             <div class="floating-search">
                 <span class="icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -51,7 +51,7 @@ class ScreenSearch extends HTMLElement {
                   </svg>
                 </button>
             </div>
-
+            </div>
             <!-- Overlay for search results -->
             <div class="results-overlay" id="resultsOverlay" style="display:none;">
                <div class="results__head" style="margin-bottom: 14px; display:flex; justify-content:space-between; align-items:center;">

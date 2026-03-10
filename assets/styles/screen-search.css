@@ -4,28 +4,51 @@
   left: 0;
   right: 0;
   bottom: 74px; /* Adjust for bottom-nav */
-  background: #f3f4f6;
+  background: #d5d1cf;
   z-index: 10;
   overflow: hidden;
 }
 
 .bg-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  top: 100px;
+  right: -25px;
+  width: 110%;
+  object-fit: contain;
   z-index: 1;
+}
+
+.floating-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12vh;
+  background: #999999;
+  background: linear-gradient(
+    0deg,
+    rgba(153, 153, 153, 1) 0%,
+    rgba(247, 242, 242, 1) 34%,
+    rgba(255, 255, 255, 1) 51%,
+    rgba(247, 242, 242, 1) 69%,
+    rgba(153, 153, 153, 1) 100%
+  );
+  z-index: 99;
+  pointer-events: none;
+}
+
+.floating-grid > * {
+  pointer-events: auto;
 }
 
 .floating-search {
   position: absolute;
-  bottom: 30px;
+  bottom: 15px;
   left: 20px;
   right: 20px;
   background: #f1efea;
   border-radius: 999px;
+  border: 1px solid #777777;
   padding: 14px 20px;
   display: flex;
   align-items: center;
