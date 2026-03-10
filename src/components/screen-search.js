@@ -135,7 +135,7 @@ class ScreenSearch extends HTMLElement {
 
         const recognition = new SpeechRecognition();
         recognition.lang = "pt-BR";
-        recognition.interimResults = false;
+        recognition.interimResults = true;
         recognition.maxAlternatives = 1;
 
         let micAlert = this.querySelector("#micAlert");
@@ -202,7 +202,10 @@ class ScreenSearch extends HTMLElement {
         };
 
         recognition.onresult = (event) => {
-          const speechResult = event.results[0][0].transcript;
+          let speechResult = "";
+          for (let i = 0; i < event.results.length; i++) {
+            speechResult += event.results[i][0].transcript;
+          }
           if (this.searchInput) {
             this.searchInput.value = speechResult;
             const inputEvent = new Event("input", { bubbles: true });
