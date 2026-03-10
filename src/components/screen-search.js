@@ -161,7 +161,7 @@ class ScreenSearch extends HTMLElement {
           const floatingSearch = this.querySelector(".floating-search");
           if (floatingSearch) {
             /* Ensure relative positioning so absolute works correctly */
-            floatingSearch.style.position = "absolute";
+            floatingSearch.style.position = "relative";
             floatingSearch.appendChild(micAlert);
           }
         }
