@@ -129,3 +129,71 @@ body {
 .nav-item.is-active {
   color: var(--primary);
 }
+
+/* --- Block Access on Desktop --- */
+
+.desktop-warning {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  /* Hide the main app on desktop */
+  .app,
+  video-modal {
+    display: none !important;
+  }
+
+  /* Show the generic warning and QR code */
+  .desktop-warning {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .desktop-warning__content {
+    background: var(--card);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .desktop-warning__logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .desktop-warning h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 26px;
+    font-weight: 800;
+  }
+
+  .desktop-warning p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .desktop-warning__qr {
+    margin-top: 10px;
+    border: 10px solid #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 250px;
+    height: 250px;
+  }
+}
