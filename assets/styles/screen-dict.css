@@ -7,6 +7,7 @@
   border: 1px solid var(--line);
   background: var(--card);
   box-shadow: var(--shadow);
+  position: relative;
 }
 
 .top-search input {
