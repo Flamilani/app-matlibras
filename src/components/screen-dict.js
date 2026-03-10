@@ -8,7 +8,8 @@ class ScreenDict extends HTMLElement {
             <span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
             </svg></span>
-            <input id="searchInputDict" type="text" placeholder="Buscar sinais" autocomplete="off"/>
+            <input id="searchInputDict" type="text" placeholder="Buscar sinais" autocomplete="off" />
+            <div id="searchResultsDropdown" class="search-dropdown hidden"></div>
         </div>
 
         <div class="hero">
@@ -37,11 +38,15 @@ class ScreenDict extends HTMLElement {
   setupListeners() {
     if (this.searchInput) {
       this.searchInput.addEventListener("input", (e) => {
-        this.renderDictSignals(e.target.value);
-        if (e.target.value.trim().length > 0) {
-          this.openBottomSheet();
-        } else if (!state.selectedCategory) {
-          this.closeBottomSheet();
+        this.handleSearch(e.target.value);
+      });
+
+      // Ocultar dropdown ao clicar fora da busca
+      document.addEventListener("click", (e) => {
+        const topSearch = this.querySelector(".top-search");
+        if (topSearch && !topSearch.contains(e.target)) {
+          const dropdown = this.querySelector("#searchResultsDropdown");
+          if (dropdown) dropdown.classList.add("hidden");
         }
       });
     }
@@ -75,6 +80,53 @@ class ScreenDict extends HTMLElement {
     this.renderDictSignals();
   }
 
+  handleSearch(text) {
+    const dropdown = this.querySelector("#searchResultsDropdown");
+    if (!dropdown || !state.data) return;
+
+    const query = text.trim().toLowerCase();
+    if (query.length === 0) {
+      dropdown.classList.add("hidden");
+      dropdown.innerHTML = "";
+      return;
+    }
+
+    const results = state.data.signals.filter((s) =>
+      s.term.toLowerCase().includes(query),
+    );
+
+    dropdown.innerHTML = "";
+    if (results.length === 0) {
+      dropdown.innerHTML =
+        '<div style="padding: 12px; text-align: center; color: var(--muted); font-size: 14px;">Nenhum sinal encontrado.</div>';
+    } else {
+      results.forEach((s) => {
+        const item = document.createElement("div");
+        item.className = "search-dropdown__item";
+        item.innerHTML = `
+          <div>
+            <h4>${escapeHtml(s.term)}</h4>
+            <p>${escapeHtml(categoryName(s.category))} • ${escapeHtml(
+              s.topic,
+            )}</p>
+          </div>
+          <span style="color: var(--primary); font-size: 18px;">▶︎</span>
+        `;
+        item.addEventListener("click", () => {
+          dropdown.classList.add("hidden");
+          this.searchInput.value = ""; // Limpa a busca
+          if (s.video) {
+            if (window.openVideoModal) window.openVideoModal(s.video, s.term);
+          } else {
+            alert("Vídeo em breve para: " + s.term);
+          }
+        });
+        dropdown.appendChild(item);
+      });
+    }
+    dropdown.classList.remove("hidden");
+  }
+
   renderCategoryGrid() {
     const grid = this.querySelector("#categoryGrid");
     if (!grid || !state.data) return;
@@ -101,28 +153,22 @@ class ScreenDict extends HTMLElement {
       `;
       card.addEventListener("click", () => {
         state.selectedCategory = cat.id;
-        this.renderDictSignals(this.searchInput.value);
+        this.renderDictSignals();
         this.openBottomSheet();
       });
       grid.appendChild(card);
     });
   }
 
-  renderDictSignals(filterText = "") {
+  renderDictSignals() {
     const list = this.querySelector("#dictSignalsList");
     if (!list || !state.data) return;
     list.innerHTML = "";
 
-    const text = (filterText || "").trim().toLowerCase();
     const selected = state.selectedCategory;
+    if (!selected) return;
 
-    let items = state.data.signals;
-
-    // filtro por categoria
-    if (selected) items = items.filter((s) => s.category === selected);
-
-    // filtro por texto
-    if (text) items = items.filter((s) => s.term.toLowerCase().includes(text));
+    let items = state.data.signals.filter((s) => s.category === selected);
 
     if (items.length === 0) {
       list.innerHTML = `<div class="list-item">
@@ -135,13 +181,13 @@ class ScreenDict extends HTMLElement {
       return;
     }
 
-    items.forEach((s) => {
+    items.forEach((s, index) => {
       const catName = categoryName(s.category);
       const row = document.createElement("div");
       row.className = "list-item";
       row.innerHTML = `
         <div class="list-item__left">
-          <h4>${escapeHtml(s.term)}</h4>
+          <h4>${index + 1}. ${escapeHtml(s.term)}</h4>
           <p>${escapeHtml(catName)} • ${escapeHtml(s.topic)}</p>
         </div>
         <button class="play" type="button">▶︎</button>
