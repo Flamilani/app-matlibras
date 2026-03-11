@@ -11,9 +11,9 @@
 
 .bg-video {
   position: absolute;
-  bottom: 82px;
-  right: -25px;
-  width: 115%;
+  bottom: 0px;
+  left: -31px;
+  width: 121%;
   object-fit: contain;
   z-index: 1;
 }
@@ -37,7 +37,7 @@
   border: 2px solid #777777;
   padding: 14px 20px;
   margin: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -70,7 +70,7 @@
   background: transparent;
   border: none;
   color: #444;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 0;
