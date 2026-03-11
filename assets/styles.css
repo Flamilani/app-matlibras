@@ -130,6 +130,79 @@ body {
   color: var(--primary);
 }
 
+/* --- PWA Install Prompt --- */
+.pwa-prompt {
+  display: none;
+  position: fixed;
+  top: 16px; /* No topo da tela */
+  left: 16px;
+  right: 16px;
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--line);
+  z-index: 1000;
+  align-items: center;
+  gap: 12px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-150%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.pwa-prompt.is-visible {
+  display: flex;
+}
+
+.pwa-prompt__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.pwa-prompt__content {
+  flex: 1;
+}
+
+.pwa-prompt__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.pwa-prompt__desc {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.pwa-prompt__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pwa-prompt__btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pwa-prompt__btn--close {
+  background: var(--bg);
+  color: var(--muted);
+}
+
 /* --- Block Access on Desktop --- */
 
 .desktop-warning {

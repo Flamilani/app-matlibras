@@ -4,7 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MatLibras</title>
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#4caf50" />
+  <link rel="apple-touch-icon" href="./assets/imgs/pwa-192x192.png">
   <link rel="stylesheet" href="./assets/styles.css" />
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('ServiceWorker registrado! Escopo:', reg.scope))
+          .catch(err => console.log('Falha no registro do ServiceWorker:', err));
+      });
+    }
+  </script>
 
 <script 
         async 
@@ -56,9 +70,65 @@
 
     <!-- BOTTOM NAV -->
     <bottom-nav></bottom-nav>
+
+    <!-- PWA Install Prompt -->
+    <div id="pwa-prompt" class="pwa-prompt">
+      <img src="./assets/imgs/pwa-192x192.png" alt="MatLibras Icon" class="pwa-prompt__icon" />
+      <div class="pwa-prompt__content">
+        <h3 class="pwa-prompt__title">Instalar MatLibras</h3>
+        <p class="pwa-prompt__desc">Adicione à tela inicial para acesso rápido e offline.</p>
+      </div>
+      <div class="pwa-prompt__actions">
+        <button id="pwa-install-btn" class="pwa-prompt__btn">Instalar</button>
+        <button id="pwa-close-btn" class="pwa-prompt__btn pwa-prompt__btn--close">Agora não</button>
+      </div>
+    </div>
   </div>
 
   <!-- Inicialização do App -->
+  <script>
+    let deferredPrompt;
+    const pwaPrompt = document.getElementById('pwa-prompt');
+    const installBtn = document.getElementById('pwa-install-btn');
+    const closeBtn = document.getElementById('pwa-close-btn');
+
+    // Escuta o evento que o navegador dispara quando identifica que o app pode ser instalado
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Previne o prompt padrão de aparecer imediatamente (menos no Chrome 67 e anteriores)
+      e.preventDefault();
+      // Guarda o evento para usá-lo depois.
+      deferredPrompt = e;
+      // Atualiza a UI para notificar o usuário que ele pode instalar o PWA
+      pwaPrompt.classList.add('is-visible');
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        // Mostra o prompt de instalação nativo
+        deferredPrompt.prompt();
+        // Espera o usuário responder
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`User response to the install prompt: ${outcome}`);
+        // O prompt não pode mais ser usado
+        deferredPrompt = null;
+      }
+      // Esconde a nossa custom UI independentemente do resultado
+      pwaPrompt.classList.remove('is-visible');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      pwaPrompt.classList.remove('is-visible');
+    });
+
+    // Detecta se o aplicativo já foi instalado e executado no modo standalone
+    window.addEventListener('appinstalled', () => {
+      // Esconde o botão e o prompt
+      pwaPrompt.classList.remove('is-visible');
+      deferredPrompt = null;
+      console.log('PWA was installed');
+    });
+  </script>
+
   <video-modal></video-modal>
   <script type="module" src="./src/main.js"></script>
 </body>
