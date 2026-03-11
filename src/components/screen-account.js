@@ -83,7 +83,7 @@ class ScreenAccount extends HTMLElement {
         clerkContainer.innerHTML = `<div style="text-align: center; width: 100%;">
             <h2>Olá, ${window.Clerk.user.firstName}!</h2>
             <p style="margin-bottom: 24px;">Você está logado e pode acessar todas as ferramentas.</p>
-
+<!--
             <button type="button" id="openHelpBtn" class="help-card" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--card, #fff); border: 1px solid var(--line, #e2e8f0); border-radius: 18px; padding: 16px; box-shadow: var(--shadow, 0 4px 6px -1px rgba(0, 0, 0, 0.1)); cursor: pointer;">
                 <span style="font-size: 24px; background: var(--primary-weak, #eaf2eb); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">❓</span>
                 <div style="text-align: left;">
@@ -91,7 +91,7 @@ class ScreenAccount extends HTMLElement {
                   <span style="font-size: 13px; color: var(--muted, #64748b);">Como usar o aplicativo</span>
                 </div>
                 <span style="margin-left: auto; color: var(--primary, #2e6b45);">▶︎</span>
-            </button> <!-- Final Help Btn -->
+            </button> -->
 
             <!-- Redes Sociais -->
             <div style="margin-top: 32px;">
