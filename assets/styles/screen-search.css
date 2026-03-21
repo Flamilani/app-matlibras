@@ -12,8 +12,8 @@
 .bg-video {
   position: absolute;
   bottom: 0px;
-  left: -31px;
-  width: 121%;
+  left: -195px;
+  width: 220%;
   object-fit: contain;
   z-index: 1;
 }

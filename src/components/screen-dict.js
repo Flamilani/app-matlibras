@@ -140,6 +140,12 @@ class ScreenDict extends HTMLElement {
         calculo: "📈",
         logica: "🧠",
         estatistica: "📊",
+        aritmetica: "➕",
+        geometria: "📐",
+        geometria_analitica: "⛶",
+        trigonometria: "📐",
+        probabilidade: "🎲",
+        matematica_financeira: "💰",
       };
       const catIcon = iconsMap[cat.id] || "📘";
 

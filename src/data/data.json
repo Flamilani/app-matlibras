@@ -1,28 +1,163 @@
 {
   "categories": [
-    { "id": "numero", "title": "Número", "subtitle": "Sinais de números" },
-    { "id": "operacoes", "title": "Operações", "subtitle": "Somar, subtrair, etc." },
     { "id": "algebra", "title": "Álgebra", "subtitle": "X, Y, equações" },
+    { "id": "aritmetica", "title": "Aritmética", "subtitle": "Números, cálculos básicos e propriedades" },
     { "id": "calculo", "title": "Cálculo", "subtitle": "Limites, derivadas" },
-    { "id": "logica", "title": "Lógica", "subtitle": "Proposições, argumentos, etc." },
-    { "id": "estatistica", "title": "Estatística", "subtitle": "Média, mediana, desvios, etc." }
+    { "id": "estatistica", "title": "Estatística", "subtitle": "Média, mediana e desvios" },
+    { "id": "geometria", "title": "Geometria", "subtitle": "Formas, áreas, volumes e figuras geométricas" },
+    { "id": "geometria_analitica", "title": "Geometria Analítica", "subtitle": "Plano cartesiano, eixos, gráficos e coordenadas" },
+    { "id": "logica", "title": "Lógica", "subtitle": "Proposições, conjuntos, relações e argumentos" },
+    { "id": "matematica_financeira", "title": "Matemática Financeira", "subtitle": "Porcentagem, juros, valores e orçamento" },
+    { "id": "numero", "title": "Número", "subtitle": "Números, numerador, denominador e classificações" },
+    { "id": "operacoes", "title": "Operações", "subtitle": "Somar, subtrair, multiplicar, dividir e tabuada" },
+    { "id": "probabilidade", "title": "Probabilidade", "subtitle": "Eventos, chances e análise de resultados" },
+    { "id": "trigonometria", "title": "Trigonometria", "subtitle": "Ângulos e relações trigonométricas" }
   ],
   "signals": [
-    { "id": "s1", "term": "Adição", "category": "operacoes", "topic": "matematica", "video": "assets/videos/adicao.mp4" },
-    { "id": "s2", "term": "Cálculo", "category": "calculo", "topic": "matematica", "video": "assets/videos/calculo.mp4" },
-    { "id": "s3", "term": "Coeficiente", "category": "algebra", "topic": "matematica", "video": "assets/videos/coeficiente.mp4" },
-    { "id": "s4", "term": "Constante", "category": "algebra", "topic": "matematica", "video": "assets/videos/constante.mp4" },
-    { "id": "s5", "term": "Crescimento", "category": "calculo", "topic": "matematica", "video": "assets/videos/crescimento.mp4" },
-    { "id": "s6", "term": "Decrescimento", "category": "calculo", "topic": "matematica", "video": "assets/videos/decrescimento.mp4" },
-    { "id": "s7", "term": "Denominador", "category": "algebra", "topic": "matematica", "video": "assets/videos/denominador.mp4" },
-    { "id": "s8", "term": "Derivada", "category": "calculo", "topic": "matematica", "video": "assets/videos/derivada.mp4" },
-    { "id": "s9", "term": "Discriminante", "category": "algebra", "topic": "matematica", "video": "assets/videos/discriminante.mp4" },
-    { "id": "s10", "term": "Divisão", "category": "operacoes", "topic": "matematica", "video": "assets/videos/divisao.mp4" },
-    { "id": "s11", "term": "Um", "category": "numero", "topic": "matematica", "video": "assets/videos/um.mp4" }
+
+    { "id": "s1", "term": "Adição", "slug": "adicao", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102373/adicao_bzd4c2.mp4" },
+    { "id": "s2", "term": "Álgebras", "slug": "algebras", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103878/algebras_mqp5rw.mp4" },
+    { "id": "s3", "term": "Altura H", "slug": "altura_h", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101906/altura_h_frlq7b.mp4" },
+    { "id": "s4", "term": "Ângulo", "slug": "angulo", "category": "trigonometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102384/angulo_ufhi2t.mp4" },
+    { "id": "s5", "term": "Base X", "slug": "base_x", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102007/base-x_ube0ob.mp4" },
+
+    { "id": "s6", "term": "Calculadora", "slug": "calculadora", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101872/calculadora_tbl450.mp4" },
+    { "id": "s7", "term": "Cálculo", "slug": "calculo", "category": "calculo", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101875/calculo_rmlohp.mp4" },
+    { "id": "s8", "term": "Cartesiano", "slug": "cartesiano", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101998/cartesiano_kvtxcc.mp4" },
+    { "id": "s9", "term": "Cilindro", "slug": "cilindro", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101907/cilindro_ezp7ja.mp4" },
+    { "id": "s10", "term": "Círculo", "slug": "circulo", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101923/circulo_ntfdc4.mp4" },
+
+    { "id": "s11", "term": "Coeficiente", "slug": "coeficiente", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103844/coeficiente_m0m7di.mp4" },
+    { "id": "s12", "term": "Coeficiente X", "slug": "coeficiente_x", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103867/coeficiente-x_q1xeii.mp4" },
+    { "id": "s13", "term": "Colchetes", "slug": "colchetes", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101872/colchetes_wkpsyd.mp4" },
+    { "id": "s14", "term": "Comprimento", "slug": "comprimento", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101905/comprimento_tdc8gv.mp4" },
+    { "id": "s15", "term": "Cone", "slug": "cone", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101937/cone_smp1jx.mp4" },
+
+    { "id": "s16", "term": "Conjuntos", "slug": "conjuntos", "category": "logica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102004/conjuntos_bhq3i9.mp4" },
+    { "id": "s17", "term": "Constante", "slug": "constante", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103884/constante_xgelsz.mp4" },
+    { "id": "s18", "term": "Constante 2", "slug": "constante_1", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103864/constante-1_ikbehg.mp4" },
+    { "id": "s19", "term": "Crescimento", "slug": "crescimento", "category": "calculo", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101884/crescimento_mlze6g.mp4" },
+    { "id": "s20", "term": "Cubo", "slug": "cubo", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101909/cubo_rlamxg.mp4" },
+
+    { "id": "s21", "term": "Decrescimento", "slug": "decrescimento", "category": "calculo", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101884/crescimento_mlze6g.mp4" },
+    { "id": "s22", "term": "Decomposição de fatores primos", "slug": "decomposicao_fatores_primos", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101881/decomposi%C3%A7%C3%A3o_fatores_primos_vltzc2.mp4" },
+    { "id": "s23", "term": "Denominador", "slug": "denominador", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102350/denominador_mljvq7.mp4" },
+    { "id": "s24", "term": "Denominador 2", "slug": "denominador_2", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102319/denominador_1_zihrlp.mp4" },
+    { "id": "s25", "term": "Derivada", "slug": "derivada", "category": "calculo", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101885/derivada_qtjesv.mp4" },
+
+    { "id": "s26", "term": "Desigualdade", "slug": "desigualdade", "category": "logica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101993/desigualdade_wraq1l.mp4" },
+    { "id": "s27", "term": "Discriminante", "slug": "discriminante", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103889/discriminante_jdmk3p.mp4" },
+    { "id": "s28", "term": "Divisão", "slug": "divisao", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102369/divisao_bsxkz5.mp4" },
+    { "id": "s29", "term": "Divisão Armada", "slug": "divisao_armada", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102370/divis%C3%A3o_armada_ngerli.mp4" },
+    { "id": "s30", "term": "Dobro", "slug": "dobro", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101881/decomposi%C3%A7%C3%A3o_fatores_primos_vltzc2.mp4" },
+
+    { "id": "s31", "term": "Eixo X", "slug": "eixo_x", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102001/eixo-x_znrk60.mp4" },
+    { "id": "s32", "term": "Eixo Y", "slug": "eixo_y", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102002/eixo-y_g2anpx.mp4" },
+    { "id": "s33", "term": "Equação", "slug": "equacao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103876/equacao_dviodk.mp4" },
+    { "id": "s34", "term": "Equação 2", "slug": "equacao01", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103859/equacao01_phvnb8.mp4" },
+    { "id": "s35", "term": "Equação 1º grau", "slug": "equacao_1grau", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103895/equacao1grau_kbj9yj.mp4" },
+    { "id": "s36", "term": "Equação 2º grau", "slug": "equacao_2grau", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103846/equacao2grau_up6i3w.mp4" },
+    { "id": "s37", "term": "Equação 3º grau", "slug": "equacao_3grau", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103887/equacao3grau_go5cns.mp4" },
+    { "id": "s38", "term": "Equação Exponencial", "slug": "equacao_exponencial", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103905/equa%C3%A7%C3%A3o_exponencial_vapgwp.mp4" },
+    { "id": "s39", "term": "Equações Polinomiais", "slug": "equacoes_polinomiais", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103919/equa%C3%A7%C3%A3o_polinominais_aievfy.mp4" },
+
+    { "id": "s40", "term": "Esfera", "slug": "esfera", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101914/esfera_wjzl8s.mp4" },
+    { "id": "s41", "term": "Expressão", "slug": "expressao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103856/express%C3%A3o_erm8gd.mp4" },
+    { "id": "s42", "term": "Expressão Numérica", "slug": "expressao_numerica", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101876/expres%C3%A3o_n%C3%BAmerica_difysg.mp4" },
+
+    { "id": "s43", "term": "Fatoração", "slug": "fatoracao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103871/fatora%C3%A7%C3%A3o_hsizkk.mp4" },
+    { "id": "s44", "term": "Fração", "slug": "fracao", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101888/fra%C3%A7%C3%A3o_zo1g1x.mp4" },
+    { "id": "s45", "term": "Função", "slug": "funcao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103917/fun%C3%A7%C3%A3o_bwwfjd.mp4" },
+    { "id": "s46", "term": "Função 2", "slug": "funcao_1", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103898/fun%C3%A7%C3%A3o_1_zwkres.mp4" },
+
+    { "id": "s47", "term": "Geometria", "slug": "geometria", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101932/geometria_q6v46t.mp4" },
+    { "id": "s48", "term": "Geometria Espacial", "slug": "geometria_espacial", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101927/geometria_espacial__io5y2v.mp4" },
+    { "id": "s49", "term": "Geometria Plana", "slug": "geometria_plana", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101906/geometria_plana_mnx1hd.mp4" },
+
+    { "id": "s50", "term": "Gráfico", "slug": "grafico", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102013/grafico_txphxy.mp4" },
+    { "id": "s51", "term": "Grau de Ângulo", "slug": "grau_de_angulo", "category": "trigonometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102377/grau_de_angulo_hl9vhm.mp4" },
+
+    { "id": "s52", "term": "Ímpar", "slug": "impar", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102334/%C3%ADmpar_m4yzah.mp4" },
+    { "id": "s53", "term": "Inequação", "slug": "inequacao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103892/inequa%C3%A7%C3%A3o_ss8kjy.mp4" },
+
+    { "id": "s54", "term": "Linha", "slug": "linha", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101931/linha_uprx2k.mp4" },
+    { "id": "s55", "term": "Logaritmo", "slug": "logaritmo", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103911/logaritimo_vxqsb7.mp4" },
+    { "id": "s56", "term": "Losango", "slug": "losango", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101938/losangulo_tqszf1.mp4" },
+
+    { "id": "s57", "term": "Matriz", "slug": "matriz", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103901/matriz_vff30z.mp4" },
+    { "id": "s58", "term": "Matriz Adição", "slug": "matriz_adicao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103914/matriz-adi%C3%A7%C3%A3o_chdw2j.mp4" },
+    { "id": "s59", "term": "Matriz Subtração", "slug": "matriz_subtracao", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103907/matriz-subtra%C3%A7%C3%A3o_kjvp8o.mp4" },
+
+    { "id": "s60", "term": "Máximo", "slug": "maximo", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101887/maximo_tvkahh.mp4" },
+    { "id": "s61", "term": "MDC", "slug": "mdc", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101890/mdc_asitij.mp4" },
+    { "id": "s62", "term": "MMC", "slug": "mmc", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101886/mmc_qzrgoi.mp4" },
+
+    { "id": "s63", "term": "Média", "slug": "media", "category": "estatistica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101920/media__zzabul.mp4" },
+    { "id": "s64", "term": "Mediana", "slug": "mediana", "category": "estatistica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101935/mediana_nmiyet.mp4" },
+    { "id": "s64b", "term": "Mediana 2", "slug": "mediana_2", "category": "estatistica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101935/mediana_1_soqrdp.mp4" },
+    { "id": "s65", "term": "Moda", "slug": "moda", "category": "estatistica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101957/moda_sdbl9n.mp4" },
+
+    { "id": "s66", "term": "Negativo", "slug": "negativo", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102333/negativo_to8j8w.mp4" },
+    { "id": "s67", "term": "Número Cardinais", "slug": "numero_cardinais", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102323/numero_cardiais_znxja4.mp4" },
+    { "id": "s68", "term": "Numerador", "slug": "numerador", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102338/numerador_jxc1ov.mp4" },
+    { "id": "s68", "term": "Numerador 2", "slug": "numerador_2", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102356/numerador_1_kxtzev.mp4" },
+
+    { "id": "s69", "term": "Operações", "slug": "operacoes", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102383/opera%C3%A7%C3%B5es_r97hff.mp4" },
+
+    { "id": "s70", "term": "Orçamento", "slug": "orcamento", "category": "matematica_financeira", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102348/or%C3%A7amento_ewegua.mp4" },
+    { "id": "s71", "term": "Porcentagem", "slug": "porcentagem", "category": "matematica_financeira", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102332/porcentagem_i4xyrz.mp4" },
+
+    { "id": "s72", "term": "Par", "slug": "par", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102319/par_gci081.mp4" },
+    { "id": "s73", "term": "Paralelepípedo", "slug": "paralelepipedo", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101918/paralelepipedo_dahgra.mp4" },
+    { "id": "s74", "term": "Paralelogramo", "slug": "paralelogramo", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101913/paralelograma__avvzfd.mp4" },
+    { "id": "s75", "term": "Parênteses", "slug": "parenteses", "category": "aritmetica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101873/parenteses_a9rupo.mp4" },
+
+    { "id": "s76", "term": "Pentágono", "slug": "pentagono", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101914/pentagono_d2f9dg.mp4" },
+    { "id": "s77", "term": "Perpendicular", "slug": "perpendicular", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101917/perpendicular_jeqmaa.mp4" },
+    { "id": "s78", "term": "Pi", "slug": "pi", "category": "numero", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102318/pi_zbyyfa.mp4" },
+
+    { "id": "s79", "term": "Pirâmide", "slug": "piramide", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101911/piramide_jlvamb.mp4" },
+    { "id": "s80", "term": "Plano Cartesiano", "slug": "plano_cartesiano", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102003/plano_cartesiano_sboaic.mp4" },
+
+    { "id": "s81", "term": "Polinômios", "slug": "polinomios", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103861/polin%C3%B4mios_gdofgq.mp4" },
+
+    { "id": "s82", "term": "Probabilidade", "slug": "probabilidade", "category": "probabilidade", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102363/probabilidade_a3zfho.mp4" },
+
+    { "id": "s83", "term": "Produto Notável", "slug": "produto_notavel", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102363/probabilidade_a3zfho.mp4" },
+
+    { "id": "s84", "term": "Quadrado", "slug": "quadrado", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101936/quadrado_vphskf.mp4" },
+
+    { "id": "s85", "term": "Raio", "slug": "raio", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101912/raio_gldisc.mp4" },
+
+    { "id": "s86", "term": "Radical", "slug": "radical", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102363/probabilidade_a3zfho.mp4" },
+
+    { "id": "s87", "term": "Retângulo", "slug": "retangulo", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101922/retangulo_dg30ow.mp4" },
+
+    { "id": "s88", "term": "Secante", "slug": "secante", "category": "trigonometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102367/secante_njpg0p.mp4" },
+
+    { "id": "s89", "term": "Somar", "slug": "somar", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102368/somar_eqhehy.mp4" },
+
+    { "id": "s90", "term": "Subtração", "slug": "subtracao", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102378/subtra%C3%A7%C3%A3o_bkohcq.mp4" },
+
+    { "id": "s91", "term": "Tabuada", "slug": "tabuada", "category": "operacoes", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102368/tabuada_upgsmw.mp4" },
+
+    { "id": "s92", "term": "Tangente", "slug": "tangente", "category": "trigonometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102386/tangente_vbpem2.mp4" },
+
+    { "id": "s93", "term": "Trapézio", "slug": "trapezio", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101927/trapezio_fdhtie.mp4" },
+
+    { "id": "s94", "term": "Triângulo", "slug": "triangulo", "category": "geometria", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101925/triangulo_rkgclo.mp4" },
+
+    { "id": "s95", "term": "Variável", "slug": "variavel_01", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103854/variavel_01_bzqirm.mp4" },
+    { "id": "s96", "term": "Variável 2", "slug": "variavel_02", "category": "algebra", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774103872/vari%C3%A1vel_02_vgkzth.mp4" },
+
+    { "id": "s97", "term": "Vetor", "slug": "vetor", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102010/vetor_syuyzf.mp4" },
+
+    { "id": "s98", "term": "Vertical", "slug": "vertical", "category": "geometria_analitica", "topic": "matematica", "video": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101994/vertical_vhfi7s.mp4" }
+
   ],
   "lessons": [
-    { "id": "l1", "title": "Aula 1 - Operações", "videoUrl": "assets/videos/adicao.mp4" },
-    { "id": "l2", "title": "Aula 2 - Fração", "videoUrl": "assets/videos/calculo.mp4" },
-    { "id": "l3", "title": "Aula 3 - Potenciação", "videoUrl": "assets/videos/coeficiente.mp4" }
+    { "id": "l1", "title": "Aula 1 - Operações", "videoUrl": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102383/opera%C3%A7%C3%B5es_r97hff.mp4" },
+    { "id": "l2", "title": "Aula 2 - Fração", "videoUrl": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774101888/fra%C3%A7%C3%A3o_zo1g1x.mp4" },
+    { "id": "l3", "title": "Aula 3 - Tabuada", "videoUrl": "https://res.cloudinary.com/dmgsrznp9/video/upload/v1774102368/tabuada_upgsmw.mp4" }
   ]
 }
