@@ -5,6 +5,16 @@ class ScreenSearch extends HTMLElement {
     this.innerHTML = `
       <section id="screen-search" class="screen is-active" aria-label="Pesquisa">
         <div class="search-fullscreen">
+
+            <!-- Header with Logo -->
+            <header class="search-header">
+              <div class="search-header__brand">
+                <div class="search-header__logo">
+                  <img src="assets/imgs/logo-matlibras.jpeg" alt="MatLibras" />
+                </div>
+                <span class="search-header__name">MatLibras</span>
+              </div>
+            </header>
             <video class="bg-video" autoplay loop muted playsinline poster="capa.jpg">
                 <source src="assets/videos/operacoes.mp4" type="video/mp4">
                 <source src="assets/videos/operacoes.webm" type="video/webm">
@@ -107,6 +117,7 @@ class ScreenSearch extends HTMLElement {
     if (this.searchInput) {
       this.searchInput.addEventListener("input", (e) => {
         const query = (e.target.value || "").trim();
+        const searchHeader = this.querySelector(".search-header");
 
         // Esconde o título e o controle de música do topo ao iniciar uma busca
         const titleOverlay = this.querySelector("#videoTitleOverlay");
@@ -115,10 +126,22 @@ class ScreenSearch extends HTMLElement {
         }
 
         if (query.length > 0) {
+          // Oculta o header ao pesquisar
+          if (searchHeader) {
+            searchHeader.style.opacity = "0";
+            searchHeader.style.pointerEvents = "none";
+            searchHeader.style.transform = "translateY(-10px)";
+          }
           this.resultsOverlay.style.display = "block";
           const items = this.searchSignals(query);
           this.renderHomeResults(items);
         } else {
+          // Restaura o header ao limpar o input
+          if (searchHeader) {
+            searchHeader.style.opacity = "1";
+            searchHeader.style.pointerEvents = "none";
+            searchHeader.style.transform = "translateY(0)";
+          }
           this.resultsOverlay.style.display = "none";
         }
       });
