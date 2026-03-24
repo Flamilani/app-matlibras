@@ -10,14 +10,14 @@ class ScreenSearch extends HTMLElement {
             <header class="search-header">
               <div class="search-header__brand">
                 <div class="search-header__logo">
-                  <img src="assets/imgs/logo-matlibras.jpeg" alt="MatLibras" />
+                  <img src="./assets/imgs/logo-matlibras.jpeg" alt="MatLibras" />
                 </div>
                 <span class="search-header__name">MatLibras</span>
               </div>
             </header>
             <video class="bg-video" autoplay loop muted playsinline poster="capa.jpg">
-                <source src="assets/videos/operacoes.mp4" type="video/mp4">
-                <source src="assets/videos/operacoes.webm" type="video/webm">
+                <source src="./assets/videos/operacoes.mp4" type="video/mp4">
+                <source src="./assets/videos/operacoes.webm" type="video/webm">
                 Seu navegador não suporta a tag de vídeo.
             </video>
 

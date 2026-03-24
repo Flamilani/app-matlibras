@@ -1,5 +1,6 @@
 import { ptBR } from "@clerk/localizations";
 import dataJson from "./data/data.json";
+import "../assets/styles.css";
 
 // ====== Init ======
 async function init() {

@@ -149,8 +149,14 @@ body {
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-150%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .pwa-prompt.is-visible {
