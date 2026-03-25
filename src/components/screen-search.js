@@ -12,7 +12,10 @@ class ScreenSearch extends HTMLElement {
                 <div class="search-header__logo">
                   <img src="./assets/imgs/logo-matlibras.jpeg" alt="MatLibras" />
                 </div>
-                <span class="search-header__name">MatLibras</span>
+                <div class="search-header__content">
+                  <span class="search-header__name">MatLibras</span>
+                  <p class="search-header__description">Dicionário de Matemática em Libras</p>
+                </div>
               </div>
             </header>
             <video class="bg-video" autoplay loop muted playsinline poster="capa.jpg">
@@ -126,22 +129,12 @@ class ScreenSearch extends HTMLElement {
         }
 
         if (query.length > 0) {
-          // Oculta o header ao pesquisar
-          if (searchHeader) {
-            searchHeader.style.opacity = "0";
-            searchHeader.style.pointerEvents = "none";
-            searchHeader.style.transform = "translateY(-10px)";
-          }
+          if (searchHeader) searchHeader.style.display = "none";
           this.resultsOverlay.style.display = "block";
           const items = this.searchSignals(query);
           this.renderHomeResults(items);
         } else {
-          // Restaura o header ao limpar o input
-          if (searchHeader) {
-            searchHeader.style.opacity = "1";
-            searchHeader.style.pointerEvents = "none";
-            searchHeader.style.transform = "translateY(0)";
-          }
+          if (searchHeader) searchHeader.style.display = "flex";
           this.resultsOverlay.style.display = "none";
         }
       });
