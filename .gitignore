@@ -2,3 +2,4 @@ node_modules
 setup_folder.sh 
 .env
 dist
+android
